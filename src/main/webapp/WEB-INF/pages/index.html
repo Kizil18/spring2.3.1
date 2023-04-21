@@ -7,27 +7,31 @@
 <body>
 <h2>All Users</h2>
 <br>
-<tab>
+<table>
     <tr>
         <th>Name</th>
         <th>Surname</th>
         <th>Age</th>
+        <th>Operation</th>
     </tr>
 
         <tr>
             <th:block th:each="user : ${allUser}">
+
             <td th:text="${user.getName()}">name</td>
-            <td th:text="${user.getLastName()}">surname</td>
+            <td th:text="${user.getSurname()}">surname</td>
             <td th:text="${user.getAge()}">age</td>
+            <td th: ><a th:href="@{/us{id}(id=${user.id})}">Edit</a></td>
+
             </th:block>
-<!--            <th:block th:each="msg : ${messages}">-->
-<!--                <h1 th:text="${msg}"></h1>-->
-<!--            </th:block>-->
         </tr>
 
 
-</tab>
+</table>
+<br>
 
+<input type="button" value="Add"
+    onclick="window.location.href = 'addUser'" >
 
 </body>
 </html>

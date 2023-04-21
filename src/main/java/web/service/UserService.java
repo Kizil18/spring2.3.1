@@ -4,6 +4,8 @@ import web.model.User;
 
 import java.util.List;
 
-public interface ServiceUser {
+public interface UserService {
     public List<User> listUser();
+
+    public void saveUser(User user);
 }

@@ -26,6 +26,14 @@ public class User {
         this.age = age;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,11 +42,11 @@ public class User {
         this.name = name;
     }
 
-    public String getLastName() {
+    public String getSurname() {
         return surname;
     }
 
-    public void setLastName(String surname) {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
