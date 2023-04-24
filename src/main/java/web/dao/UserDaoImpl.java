@@ -20,16 +20,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void saveUser(User user) {
-        entityManager.merge(user);
+        entityManager.persist(user);
     }
 
     public void updateUser(User user) {
-        Query query = entityManager.createQuery("UPDATE User u SET u.name = :name, u.surname = :surname, u.age = :age WHERE u.id = :id");
-        query.setParameter("name", user.getName());
-        query.setParameter("surname", user.getSurname());
-        query.setParameter("age", user.getAge());
-        query.setParameter("id", user.getId());
-        query.executeUpdate();
+        entityManager.merge(user);
     }
 
     @Override
