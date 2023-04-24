@@ -17,30 +17,36 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String showAllUser(Model model) {
         model.addAttribute("allUser", userService.listUser());
         return "index";
     }
 
-    @RequestMapping("/addUser")
+    @GetMapping("/addUser")
     public String addNewUser(Model model) {
         model.addAttribute("user", new User());
         return "user-info";
     }
-    @RequestMapping("/saveUser")
+    @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
 
-    @RequestMapping("/updateUser")
+    @GetMapping("/updateUser")
     public String updateUser(@RequestParam("userId") int id, Model model) {
         model.addAttribute("user", userService.getUser(id));
-        return "user-info";
+        return "user-update";
     }
 
-    @RequestMapping("/deleteUser")
+    @PostMapping("/upUser")
+    public String upUser(@ModelAttribute("user") User user) {
+        userService.updateUser(user);
+        return "redirect:/";
+    }
+
+    @PostMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") int id, Model model) {
         userService.deleteUser(id);
         return "redirect:/";
