@@ -40,13 +40,13 @@ public class UserController {
         return "user-update";
     }
 
-    @PostMapping("/upUser")
+    @PutMapping("/upUser")
     public String upUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/";
     }
 
-    @PostMapping("/deleteUser")
+    @DeleteMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") int id, Model model) {
         userService.deleteUser(id);
         return "redirect:/";
